@@ -1,2 +1,2 @@
 # neetcode
-Solutions for needcode problems
+Solutions for needcode problems in Java
