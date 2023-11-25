@@ -1,11 +1,9 @@
 package neetcode.slidingwindow;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
-public class LenLongSubStringUnique {
+public class UniqueLongSubString {
 
 
     public static int lengthOfLongestSubstring(String s) {
