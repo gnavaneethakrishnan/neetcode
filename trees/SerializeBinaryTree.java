@@ -48,6 +48,36 @@ public class SerializeBinaryTree {
         helper(root.right, results);
     }
 
+
+    public TreeNode deserializeDFS(String data) {
+
+        if(data.equals("N")) return null;
+
+        String[] strings = data.split(",");
+        Queue<String> queue = new LinkedList<>(Arrays.asList(strings));
+
+       return buildTree(queue);
+        
+
+
+    }
+
+    private TreeNode buildTree(Queue<String> queue) {
+
+        String nodeString = queue.poll();
+
+        if (nodeString.equals("N")) {
+            return null;
+        } else {
+            TreeNode node = new TreeNode(Integer.parseInt(nodeString));
+            node.left = buildTree(queue);
+            node.right = buildTree(queue);
+            return node;
+        }
+
+
+    }
+
     public String serialize(TreeNode root) {
         if(root == null) return "N";
         Queue<TreeNode> queue = new LinkedList<>();
