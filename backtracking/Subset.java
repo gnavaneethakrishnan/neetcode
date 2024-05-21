@@ -27,5 +27,30 @@ public class Subset {
         }
     }
 
+
+    public List<List<Integer>> subsetsNeetCodeSol(int[] nums) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> tempSet = new ArrayList<>();
+        dfs(result,nums,0,tempSet);
+        return result;
+
+
+    }
+
+    private void dfs(List<List<Integer>> result, int[] nums, int i, List<Integer> tempSet) {
+
+        if (i >= nums.length) {
+            result.add(new ArrayList<>(tempSet));
+            return;
+        }
+
+        tempSet.add(nums[i]);
+        dfs(result,nums,i+1,tempSet);
+        tempSet.remove(tempSet.size() - 1);
+        dfs(result,nums,i+1,tempSet);
+    }
+
+
 }
 
